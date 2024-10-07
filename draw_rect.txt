@@ -47,14 +47,14 @@ draw_rect:
 # -OUTER LOOP START-
 row_loop_start:
 
-	bge $t2, $t0, row_loop_end			# if y >= height-1, exit row loop
+	bgt $t2, $t0, row_loop_end			# if y > height-1, exit row loop
 	
 	li $t3, 0			# init column loop iterator, x = 0 (inner loop)
 
 # -INNER LOOP START-
 col_loop_start:
 
-	bge $t3, $t1, col_loop_end			# if x >= width-1, exit column loop
+	bgt $t3, $t1, col_loop_end			# if x > width-1, exit column loop
 	
 	beq $t2, 0, top_bot_row				# if y = 0, branch to top_bot_row
 	beq $t2, $t0, top_bot_row			# OR y = height-1, branch to top_bot_row
